@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Form.css';
 
-const Form = ({ url, verb, requestBody, username, password, token, onSubmit, onChange }) => (
+const Form = ({ url, verb, requestBody, username, password, token, onSubmit, onChange, onClick }) => (
   <form onSubmit={onSubmit} onChange={onChange} className={styles.Form}>
     <input type="text" name="url" placeholder="Enter URL" defaultValue={url}/>
 
@@ -22,13 +22,13 @@ const Form = ({ url, verb, requestBody, username, password, token, onSubmit, onC
       <input type="radio" name="verb" id="DELETE" value="DELETE" defaultChecked={verb === 'DELETE' ? true : false} />DELETE
     </label>
 
-    <input type="textarea" name="json" placeholder='Raw Body' defaultValue={requestBody} />
+    <input type="textarea" name="requestBody" placeholder='Raw Body' defaultValue={requestBody} />
     <input type="text" name="username" placeholder="Username" defaultValue={username}/>
     <input type="text" name="password" placeholder="Password" defaultValue={password}/>
     <input type="text" name="token" placeholder="Bearer Token" defaultValue={token}/>
 
     <button>Go!</button>
-    <button type="reset" value="Clear Entries">Clear Entries</button>
+    <button type="reset" value="Clear Entries" onClick={onClick}>Clear Entries</button>
   </form>
 );
 
@@ -40,7 +40,8 @@ Form.propTypes = {
   password: PropTypes.string,
   token: PropTypes.string,
   onSubmit: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default Form;

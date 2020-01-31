@@ -23,6 +23,17 @@ export default class Postperson extends React.Component {
       this.setState({ responseBody });
     });
 
+  resetForm = () => {
+    this.setState({
+      url: '',
+      verb: '',
+      requestBody: '',
+      username: '',
+      password: '',
+      token: ''
+    });
+  }
+
   handleChange = ({ target }) => this.setState({ [target.name]: target.value });
 
   handleSubmit = event => {
@@ -56,7 +67,8 @@ export default class Postperson extends React.Component {
           password={password}
           token={token}
           onChange={this.handleChange}
-          onSubmit={this.handleSubmit} />
+          onSubmit={this.handleSubmit}
+          onClick={this.resetForm} />
         <Response responseBody={responseBody}/>
         <Footer />
       </>
