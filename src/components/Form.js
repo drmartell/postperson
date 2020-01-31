@@ -4,18 +4,28 @@ import styles from './Form.css';
 
 const Form = ({ url, verb, requestBody, username, password, token, onSubmit, onChange }) => (
   <form onSubmit={onSubmit} onChange={onChange} className={styles.Form}>
-    <input type="text" name="url" placeholder="Enter URL" value={url}/>
+    <input type="text" name="url" placeholder="Enter URL" defaultValue={url}/>
 
-    <input type="radio" name="verb" id="GET" value="GET" checked={(verb === '' || verb === 'GET') ? true : false} />
-    <input type="radio" name="verb" id="POST" value="POST" checked={verb === 'POST' ? true : false} />
-    <input type="radio" name="verb" id="PUT" value="PUT" checked={verb === 'PUT' ? true : false} />  
-    <input type="radio" name="verb" id="PATCH" value="PATCH" checked={verb === 'PATCH' ? true : false} />  
-    <input type="radio" name="verb" id="DELETE" value="DELETE" checked={verb === 'DELETE' ? true : false} />
+    <label>
+      <input type="radio" name="verb" id="GET" value="GET" defaultChecked={verb === 'GET' ? true : false} />GET
+    </label>
+    <label>
+      <input type="radio" name="verb" id="POST" value="POST" defaultChecked={verb === 'POST' ? true : false} />POST
+    </label>
+    <label>
+      <input type="radio" name="verb" id="PUT" value="PUT" defaultChecked={verb === 'PUT' ? true : false} />PUT
+    </label>
+    <label>
+      <input type="radio" name="verb" id="PATCH" value="PATCH" defaultChecked={verb === 'PATCH' ? true : false} />PATCH
+    </label>
+    <label>
+      <input type="radio" name="verb" id="DELETE" value="DELETE" defaultChecked={verb === 'DELETE' ? true : false} />DELETE
+    </label>
 
-    <input type="textarea" name="json" placeholder='Raw Body' value={requestBody} />
-    <input type="text" name="username" placeholder="Username" value={username}/>
-    <input type="text" name="password" placeholder="Password" value={password}/>
-    <input type="text" name="token" placeholder="Bearer Token" value={token}/>
+    <input type="textarea" name="json" placeholder='Raw Body' defaultValue={requestBody} />
+    <input type="text" name="username" placeholder="Username" defaultValue={username}/>
+    <input type="text" name="password" placeholder="Password" defaultValue={password}/>
+    <input type="text" name="token" placeholder="Bearer Token" defaultValue={token}/>
 
     <button>Go!</button>
     <button type="reset" value="Clear Entries">Clear Entries</button>
