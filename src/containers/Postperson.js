@@ -53,12 +53,23 @@ export default class Postperson extends React.Component {
     this.fetch();
   }
 
+  repopulateForm = ({ url, verb, requestBody, username, password, token }) => {
+    this.setState({
+      url,
+      verb,
+      requestBody,
+      username,
+      password,
+      token
+    });
+  }
+
   render() {
     const { url, verb, requestBody, username, password, token, responseBody, historyItems } = this.state;
     return (
       <>
         <Header />
-        <History historyItems={historyItems}/>
+        <History historyItems={historyItems} onClick={this.repopulateForm}/>
         <Form
           url={url}
           verb={verb}

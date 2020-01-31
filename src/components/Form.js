@@ -3,29 +3,29 @@ import PropTypes from 'prop-types';
 import styles from './Form.css';
 
 const Form = ({ url, verb, requestBody, username, password, token, onSubmit, onChange, onClick }) => (
-  <form onSubmit={onSubmit} onChange={onChange} className={styles.Form}>
-    <input type="text" name="url" placeholder="Enter URL" defaultValue={url}/>
+  <form onSubmit={onSubmit} className={styles.Form}>
+    <input type="text" name="url" placeholder="Enter URL" defaultValue={url} onChange={onChange} />
 
     <label>
-      <input type="radio" name="verb" id="GET" value="GET" defaultChecked={verb === 'GET' ? true : false} />GET
+      <input type="radio" name="verb" id="GET" value="GET" checked={verb === 'GET'} onChange={onChange} />GET
     </label>
     <label>
-      <input type="radio" name="verb" id="POST" value="POST" defaultChecked={verb === 'POST' ? true : false} />POST
+      <input type="radio" name="verb" id="POST" value="POST" checked={verb === 'POST'} onChange={onChange} />POST
     </label>
     <label>
-      <input type="radio" name="verb" id="PUT" value="PUT" defaultChecked={verb === 'PUT' ? true : false} />PUT
+      <input type="radio" name="verb" id="PUT" value="PUT" checked={verb === 'PUT'} onChange={onChange} />PUT
     </label>
     <label>
-      <input type="radio" name="verb" id="PATCH" value="PATCH" defaultChecked={verb === 'PATCH' ? true : false} />PATCH
+      <input type="radio" name="verb" id="PATCH" value="PATCH" checked={verb === 'PATCH'} onChange={onChange} />PATCH
     </label>
     <label>
-      <input type="radio" name="verb" id="DELETE" value="DELETE" defaultChecked={verb === 'DELETE' ? true : false} />DELETE
+      <input type="radio" name="verb" id="DELETE" value="DELETE" checked={verb === 'DELETE'} onChange={onChange} />DELETE
     </label>
 
-    <input type="textarea" name="requestBody" placeholder='Raw Body' defaultValue={requestBody} />
-    <input type="text" name="username" placeholder="Username" defaultValue={username}/>
-    <input type="text" name="password" placeholder="Password" defaultValue={password}/>
-    <input type="text" name="token" placeholder="Bearer Token" defaultValue={token}/>
+    <input type="textarea" name="requestBody" placeholder='Raw Body' defaultValue={requestBody} onChange={onChange} />
+    <input type="text" name="username" placeholder="Username" defaultValue={username} onChange={onChange} />
+    <input type="text" name="password" placeholder="Password" defaultValue={password} onChange={onChange} />
+    <input type="text" name="token" placeholder="Bearer Token" defaultValue={token} onChange={onChange} />
 
     <button>Go!</button>
     <button type="reset" value="Clear Entries" onClick={onClick}>Clear Entries</button>

@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HistoryItem from './HistoryItem';
 
-const History = ({ historyItems }) => {
+const History = ({ historyItems, onClick }) => {
   const historyElements = historyItems.map((historyItem, i) => (
     <li key={i}>
-      <HistoryItem historyItem={historyItem} />
+      <HistoryItem historyItem={historyItem} onClick={onClick} />
     </li>
   ));
 
@@ -27,7 +27,8 @@ History.propTypes = {
     username: PropTypes.string,
     password: PropTypes.string,
     token: PropTypes.string
-  })).isRequired
+  })).isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default History;

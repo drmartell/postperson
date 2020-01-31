@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const HistoryItem = ({ historyItem }) => (
-  <>
+const HistoryItem = ({ historyItem, onClick }) => (
+  <div onClick={() => onClick(historyItem)}>
     <span>{historyItem.verb}</span>
     <span>{historyItem.url}</span>
-  </>
+  </div>
 );
 
 HistoryItem.propTypes = {
@@ -16,7 +16,8 @@ HistoryItem.propTypes = {
     username: PropTypes.string,
     password: PropTypes.string,
     token: PropTypes.string
-  }).isRequired
+  }).isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default HistoryItem;
