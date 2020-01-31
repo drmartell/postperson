@@ -18,10 +18,26 @@ export default class Postperson extends React.Component {
     historyItems: []
   }
   
-  fetch = () => fetchWithError(this.state.url)
-    .then(responseBody => {
-      this.setState({ responseBody });
-    });
+  fetch = () => {
+    const options = {
+      method: this.state.verb,
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      }
+    };
+
+    if(this.state.token !== '')
+      options.headers.Authorization = `Bearer ${this.state.token}`;
+    else if(this.state.username !== '')
+      options.headers.Authorization = `Basic ${this.state.username}:${this.state.password}`;
+    
+    if(this.state.body !== '') options.body = this.state.body;
+        
+    return fetchWithError(this.state.url, options)
+      .then(responseBody => {
+        this.setState({ responseBody });
+      });
+  }
 
   resetForm = () => {
     this.setState({
