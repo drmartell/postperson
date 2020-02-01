@@ -31,7 +31,10 @@ export default class Postperson extends React.Component {
     else if(this.state.username !== '')
       options.headers.Authorization = `Basic ${this.state.username}:${this.state.password}`;
     
-    if(this.state.body !== '') options.body = this.state.body;
+    if(this.state.body !== '')
+      if(/"{.*}"/.test(this.state.body))
+        eval('options.body = ' + this.state.options.body.slice(1, -1));
+      else options.body = this.state.body;
         
     return fetchWithError(this.state.url, options)
       .then(responseBody => {
