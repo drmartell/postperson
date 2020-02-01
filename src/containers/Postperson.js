@@ -21,10 +21,11 @@ export default class Postperson extends React.Component {
   fetch = () => {
     const options = {
       method: this.state.verb,
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      }
+      headers: {}
     };
+
+    if(['POST', 'PUT', 'PATCH'].includes(this.state.verb))
+      options.headers['Content-type'] = 'application/json; charset=UTF-8';
 
     if(this.state.token !== '')
       options.headers.Authorization = `Bearer ${this.state.token}`;
@@ -32,14 +33,12 @@ export default class Postperson extends React.Component {
       options.headers.Authorization = `Basic ${this.state.username}:${this.state.password}`;
     
     if(this.state.body !== '')
-      if(/"{.*}"/.test(this.state.body))
+      if(/^"{.*}"$/.test(this.state.body))
         eval('options.body = ' + this.state.options.body.slice(1, -1));
       else options.body = this.state.body;
-        
+
     return fetchWithError(this.state.url, options)
-      .then(responseBody => {
-        this.setState({ responseBody });
-      });
+      .then(responseBody => this.setState({ responseBody }));
   }
 
   resetForm = () => {
