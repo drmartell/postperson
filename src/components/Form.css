@@ -22,7 +22,11 @@
   }
   
   label {
+    margin: 10px;
+    width: 100%;
     grid-row: 2;
+    justify-self: center;
+    text-align: center;
   }
   
   input[name="requestBody"] {
@@ -79,6 +83,8 @@
 
   button {
     cursor: pointer;
-    height: auto;
+    height: 40px;
+    width: 80px;
+    align-self: center;
   }
 }
