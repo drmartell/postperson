@@ -5,6 +5,7 @@ import Form from '../components/Form';
 import Response from '../components/Response';
 import Footer from '../components/Footer';
 import { fetchWithError } from '../services/api';
+import styles from './Postperson.css';
 
 export default class Postperson extends React.Component {
   state = {
@@ -87,18 +88,20 @@ export default class Postperson extends React.Component {
     return (
       <>
         <Header />
-        <History historyItems={historyItems} onClick={this.repopulateForm}/>
-        <Form
-          url={url}
-          verb={verb}
-          requestBody={requestBody}
-          username={username}
-          password={password}
-          token={token}
-          onChange={this.handleChange}
-          onSubmit={this.handleSubmit}
-          onClick={this.resetForm} />
-        <Response responseBody={responseBody}/>
+        <section className={styles.body}>
+          <History historyItems={historyItems} onClick={this.repopulateForm}/>
+          <Form
+            url={url}
+            verb={verb}
+            requestBody={requestBody}
+            username={username}
+            password={password}
+            token={token}
+            onChange={this.handleChange}
+            onSubmit={this.handleSubmit}
+            onClick={this.resetForm} />
+          <Response responseBody={responseBody}/>
+        </section>
         <Footer />
       </>
     );

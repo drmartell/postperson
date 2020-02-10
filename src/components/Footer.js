@@ -1,7 +1,6 @@
 import React from 'react';
+import styles from './Footer.css';
 
-const Footer = () => (
-  <h1>Postperson Footer</h1>
-);
+const Footer = () => <footer className={styles.Footer}>Made with ♥ at alchemy code lab 2020</footer>;
 
 export default Footer;

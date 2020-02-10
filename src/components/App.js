@@ -3,11 +3,7 @@ import Postperson from '../containers/Postperson';
 
 class App extends React.Component {
   render() {
-    return (
-      <>
-        <Postperson />
-      </>
-    );
+    return <Postperson />;
   }
 }
 
