@@ -1,6 +1,14 @@
 import React from 'react';
+import Postperson from '../containers/Postperson';
 
-export default function App() {
-  return <h1>Hello World</h1>;
+class App extends React.Component {
+  render() {
+    return (
+      <>
+        <Postperson />
+      </>
+    );
+  }
 }
-  
+
+export default App;
