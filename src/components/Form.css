@@ -1,0 +1,90 @@
+.Form {
+  font-family: Verdana,Geneva,Tahoma,sans-serif;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  
+  h2 {
+    font-weight: 700;
+    font-size: 1em;
+    margin: 10px;
+    padding: 0;
+    border: 0;
+  }
+  
+  input[name="verb"] {
+    display: none;
+  }
+  
+  input[name="url"] {
+    margin: 10px;
+    grid-row: 1;
+    grid-column: 1/10;
+  }
+  
+  label {
+    margin: 10px;
+    width: 100%;
+    grid-row: 2;
+    justify-self: center;
+    text-align: center;
+  }
+  
+  input[name="requestBody"] {
+    margin: 10px;
+    height: 10vh;
+    grid-row: 3;
+    grid-column: 1/10;
+  }
+  
+  h2[name="basic-authorization"] {
+    grid-row: 4;
+    grid-column: 1/10;
+  }
+
+  input[name="username"] {
+    margin: 10px;
+  }
+
+  input[name="password"] {
+    margin: 10px;
+  }
+
+  span[id="credentials"] {
+    grid-row: 5;
+    grid-column: 1/10;
+  }
+
+  h2[name="bearer-token"] {
+    grid-row: 6;
+    grid-column: 1/10;
+  }
+
+  input[name="token"] {
+    margin: 10px;
+    grid-row: 7;
+    grid-column: 1/10;
+  }
+
+  label {
+    margin: 10px;
+    justify-self: center;
+    cursor: pointer;
+    padding: 0.4rem;
+
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+  input:checked + label {
+    background-color: #2d5986;
+    color: white;
+    transition: ease;
+  }
+
+  button {
+    cursor: pointer;
+    height: 40px;
+    width: 80px;
+    align-self: center;
+  }
+}
